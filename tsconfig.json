@@ -9,8 +9,17 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "resolveJsonModule": true,
+    "baseUrl": "src",
+    "paths": {
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@components": [
+        "components"
+      ]
+    },
   },
   "exclude": [
-      "node_modules"
-  ]
+    "node_modules"
+  ],
 }

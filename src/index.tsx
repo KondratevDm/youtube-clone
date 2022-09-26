@@ -1,16 +1,9 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client';
+// import Button from '@mui/material/Button';
 
-import './styles/styles.css'
+import { App } from './app'
 
 const root = createRoot(document.getElementById("root") as HTMLElement);
-
-const App = () => {
-    return (
-        <>
-            <div>JSX is here!</div>
-        </>
-    )
-}
 
 root.render(<App />)

@@ -60,7 +60,8 @@ module.exports = {
         compress: true,
         port: 3000,
         open: true,
-        hot: false
+        hot: false,
+        historyApiFallback: true,
     },
     devtool: isDev ? 'source-map' : false,
     plugins: [
