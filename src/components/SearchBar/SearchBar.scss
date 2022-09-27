@@ -1,0 +1,36 @@
+.searchBar {
+    color: white;
+    position: absolute;
+    left: 40%;
+
+    input {
+        width:362px;
+        height:40px;
+        background: #121212;
+        border-radius: 2px 0px 0px 2px;     
+        cursor: text;
+        color: white;
+        border: 0px;
+        padding-left: 10px;
+        &:focus {
+            background: #303030;
+        }
+    }
+
+    button {
+
+        position: absolute;
+        width: 64px;
+        height: 40px;
+        right: 0px;
+        top: 0px;
+        background: #303030;
+        border: 1px solid #303030;
+        border-radius: 0px 2px 2px 0px;
+        cursor: pointer;
+        background-image: url("@assets/images/search.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+
+    }
+}

@@ -40,7 +40,9 @@ module.exports = {
         extensions: ['.js', '.json', '.png', '.jpg', '.svg', '.tsx', '.ts'],
         alias: {
             '@src': path.resolve(__dirname, 'src'),
+            '@': path.resolve(__dirname, 'src'),
             '@components': path.resolve(__dirname, 'src/components'),
+            '@assets': path.resolve(__dirname, 'src/assets'),
         }
     },
     optimization: {
