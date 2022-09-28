@@ -19,6 +19,9 @@
       ],
       "@components": [
         "components"
+      ],
+      "@utils": [
+        "utils"
       ]
     },
   },
