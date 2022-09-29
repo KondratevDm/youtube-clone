@@ -4,7 +4,7 @@ import HomeLogo from '@assets/images/home.svg'
 import ArrowTop from '@assets/images/arrow-top.svg'
 import ArrowBottom from '@assets/images/arrowBottom.svg'
 
-export const navBarTabs: NavbarTabType[] = [
+export const navBarTabsArr: NavbarTabType[] = [
     {
         id: 0,
         text: 'Home',
@@ -30,7 +30,7 @@ export const navBarTabs: NavbarTabType[] = [
     },
 ]
 
-export const navBarHiddenTabs: NavbarTabType[] = [
+export const navBarHiddenTabsArr: NavbarTabType[] = [
     {
         id: 0,
         text: 'Home',
