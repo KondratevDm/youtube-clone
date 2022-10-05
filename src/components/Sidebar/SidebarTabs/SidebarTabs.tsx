@@ -1,30 +1,34 @@
 import React, { FC } from 'react';
 
-import { NavbarItem } from '../NavbarItem'
-import { NavbarTabType, NavbarStylesType } from '@/types'
+import { SidebarItem } from '../SidebarItem'
+import { SidebarTabType, SidebarStylesType } from '@/types'
 
-interface NavbarTabsProps {
-    isNavbarOpen: boolean,
+interface SidebarTabsProps {
+    isSidebarOpen: boolean,
     showHiddenTabsHandle: () => void,
     isHiddenTabsShow: boolean,
-    tabs: NavbarTabType[]
+    tabs: SidebarTabType[],
+    selectedCategory: string,
+    setSelectedCategory: React.Dispatch<React.SetStateAction<string>>,
 }
 
-export const NavbarTabs: FC<NavbarTabsProps> = ({ isNavbarOpen, showHiddenTabsHandle, isHiddenTabsShow, tabs }) => {
+export const SidebarTabs: FC<SidebarTabsProps> = ({ isSidebarOpen, showHiddenTabsHandle, isHiddenTabsShow, tabs, selectedCategory, setSelectedCategory }) => {
     return (
         <>
             {
-                tabs.map(({ id, text, image, path }: NavbarTabType) => (
-                    <NavbarItem
+                tabs.map(({ id, text, image, path }: SidebarTabType) => (
+                    <SidebarItem
                         key={id}
                         id={id}
                         text={text}
-                        isNavbarOpen={isNavbarOpen}
+                        isSidebarOpen={isSidebarOpen}
                         image={image}
                         path={path}
                         styles={styles}
                         showHiddenTabsHandle={showHiddenTabsHandle}
                         isHiddenTabsShow={isHiddenTabsShow}
+                        selectedCategory={selectedCategory}
+                        setSelectedCategory={setSelectedCategory}
                     />
                 ))
             }
@@ -32,15 +36,13 @@ export const NavbarTabs: FC<NavbarTabsProps> = ({ isNavbarOpen, showHiddenTabsHa
     );
 }
 
-const styles = (opened: boolean): NavbarStylesType => {
+const styles = (opened: boolean, isTabSelected?: boolean): SidebarStylesType => {
     return {
         ListItem: {
             '&:hover': {
                 backgroundColor: '#303030',
             },
-            "&:click": {
-                backgroundColor: "green"
-            }
+            backgroundColor: isTabSelected ? '#303030' : 'fff'
         },
         ListItemButton: {
             minHeight: 48,

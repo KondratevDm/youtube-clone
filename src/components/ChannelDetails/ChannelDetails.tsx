@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
+
 import './ChannelDetails.scss';
 
-interface ChannelDetailsProps {}
+export const ChannelDetails: FC = () => {
+  return (
+    <div className="ChannelDetails">
+      ChannelDetails Component
+    </div>
+  );
+}
 
-const ChannelDetails: FC<ChannelDetailsProps> = () => (
-  <div className="ChannelDetails">
-    ChannelDetails Component
-  </div>
-);
 
-export default ChannelDetails;

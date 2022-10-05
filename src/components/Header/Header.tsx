@@ -9,14 +9,14 @@ import {
 import './Header.scss';
 
 interface HeaderProps {
-  setIsNavbarOpen: React.Dispatch<React.SetStateAction<boolean>>,
-  isNavbarOpen: boolean
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>,
+  isSidebarOpen: boolean
 }
 
-export const Header: FC<HeaderProps> = ({ setIsNavbarOpen, isNavbarOpen }) => {
+export const Header: FC<HeaderProps> = ({ setIsSidebarOpen, isSidebarOpen }) => {
   return (
     <div className="header">
-      <img src={HamburgerLogo} alt="Hamburger" className="header__hamburger" onClick={() => setIsNavbarOpen(!isNavbarOpen)} />
+      <img src={HamburgerLogo} alt="Hamburger" className="header__hamburger" onClick={() => setIsSidebarOpen(!isSidebarOpen)} />
       <Link to="/">
         <img src={YouTubeLogo} alt="YouTube Logo" className="header__logo" />
       </Link>

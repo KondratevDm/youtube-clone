@@ -5,6 +5,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const ESLintPlugin = require("eslint-webpack-plugin")
+const Dotenv = require('dotenv-webpack');
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
@@ -83,8 +84,7 @@ module.exports = {
         new ESLintPlugin({
             extensions: ["js", "jsx", "ts", "tsx"],
         }),
-
-
+        new Dotenv()
     ],
     module: {
         rules: [

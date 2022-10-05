@@ -1,1 +1,68 @@
-.Feed {}
+.feed {
+    width: 100vw;
+    // width: calc(100vw - 40px);
+    background: #181818;
+
+
+    &__content {
+        box-sizing: border-box;
+        width: 100%;
+        // padding-left: auto;
+        // padding-right: auto;
+        justify-content: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        min-height: calc(100vh - 56px);
+        
+
+        &__item {
+            width: 276px;
+            margin-right: 20px;
+            margin-top: 20px;
+            cursor: pointer;
+
+            &:active {
+                background-color: #212121;
+            }  
+
+            &__img {
+                width: 276px;
+                height: 155px;
+                object-fit: cover;
+            }
+
+            &__title {
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 14px;
+                line-height: 14px;
+                color: #FFFFFF;
+                margin-top: 12px;
+                margin-bottom: 6px;
+                height: 28px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            &__channel-name, &__views  {
+                font-family: 'Roboto';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+                color: #AAAAAA;
+                margin: 0px;
+            }
+
+            &__channel-name {
+              &:hover {
+                color: #fff;
+              }  
+            }
+        }
+    }
+}
