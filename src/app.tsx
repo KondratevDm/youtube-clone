@@ -3,42 +3,35 @@ import {
     BrowserRouter,
     Routes,
     Route,
-    // Link,
 } from "react-router-dom";
 
 import {
     Feed,
     Header,
-    Navbar
+    Sidebar,
+    ChannelDetails
 } from '@components'
 
-
+import './styles/app.scss'
 
 export const App: React.FC = () => {
-    const [isNavbarOpen, setIsNavbarOpen] = useState<boolean>(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
+    const [selectedCategory, setSelectedCategory] = useState<string>('JS');
 
     return (
         <BrowserRouter>
             <div>
-                <Header setIsNavbarOpen={setIsNavbarOpen} isNavbarOpen={isNavbarOpen} />
-                <div style={{ display: 'flex' }}>
-                    <Navbar isNavbarOpen={isNavbarOpen} />
+                <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+
+                <div className="container">
+                    <Sidebar isSidebarOpen={isSidebarOpen} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                     <Routes>
-                        <Route path="/" element={<Feed />} />
-                        <Route path="*" element={<div> not found</div>} />
+                        <Route path="/" element={<Feed selectedCategory={selectedCategory} />} />
+                        <Route path="/channel-details" element={<ChannelDetails />} />
                         <Route path="hm" element={<div> hm</div>} />
                         <Route path="/about" element={<div> about</div>} />
                     </Routes>
                 </div>
-                {/* <Link to="/">Главная</Link>
-                <Link to="/about">ЭБАУТ</Link>
-                <Link to='/hm' >ХМММ</Link> */}
-                {/* <Routes> */}
-                {/* <Route path="/" element={<Feed />} />
-                    <Route path="*" element={<div> not found</div>} />
-                    <Route path="hm" element={<div> hm</div>} />
-                    <Route path="/about" element={<div> about</div>} /> */}
-                {/* </Routes> */}
             </div>
         </BrowserRouter>
     );
