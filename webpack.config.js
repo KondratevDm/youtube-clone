@@ -35,7 +35,8 @@ module.exports = {
     output: {
         filename: fileName('js'),
         path: path.resolve(__dirname, 'dist'),
-        clean: true
+        clean: true,
+        publicPath: '/'
     },
     resolve: {
         extensions: ['.js', '.json', '.png', '.jpg', '.svg', '.tsx', '.ts'],

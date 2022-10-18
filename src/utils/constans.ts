@@ -6,113 +6,36 @@ import { TbMovie, TbBrandNextjs } from 'react-icons/tb';
 import { GiPalmTree } from 'react-icons/gi';
 import { BiFootball } from 'react-icons/bi';
 
-// export const sidebarTabsArr: SidebarTabType[] = [
-//     {
-//         id: 0,
-//         text: 'JS',
-//         image: [IoLogoJavascript],
-//         path: '/js'
-//     },
-//     {
-//         id: 1,
-//         text: 'React',
-//         image: [FaReact],
-//         path: '/suggested-videos/react'
-//     },
-//     {
-//         id: 2,
-//         text: 'Node.js',
-//         image: [FaNodeJs],
-//         path: '/suggested-videos/nodejs'
-//     },
-//     {
-//         id: 3,
-//         text: 'Next.js',
-//         image: [TbBrandNextjs],
-//         path: '/suggested-videos/nextjs'
-//     },
-//     {
-//         id: 4,
-//         text: 'Solidity',
-//         image: [SiSolidity],
-//         path: '/suggested-videos/solidity'
-//     },
-//     {
-//         id: 5,
-//         text: 'Chill',
-//         image: [IoIosArrowUp, IoIosArrowDown],
-//     },
-// ]
-
-// export const sidebarHiddenTabsArr: SidebarTabType[] = [
-//     {
-//         id: 0,
-//         text: 'Gaming',
-//         image: [SiYoutubegaming],
-//         path: '/suggested-videos/gaming'
-//     },
-//     {
-//         id: 1,
-//         text: 'Music',
-//         image: [IoIosMusicalNote],
-//         path: '/suggested-videos/music'
-//     },
-//     {
-//         id: 2,
-//         text: 'Movie',
-//         image: [TbMovie],
-//         path: '/suggested-videos/movie'
-//     },
-//     {
-//         id: 3,
-//         text: 'Podcast',
-//         image: [FaPodcast],
-//         path: '/suggested-videos/podcast'
-//     },
-//     {
-//         id: 4,
-//         text: 'Travel',
-//         image: [GiPalmTree],
-//         path: '/suggested-videos/travel'
-//     },
-//     {
-//         id: 5,
-//         text: 'Sport',
-//         image: [BiFootball],
-//         path: '/suggested-videos/sport'
-//     },
-// ]
-
 export const sidebarTabsArr: SidebarTabType[] = [
     {
         id: 0,
-        text: 'JS',
+        text: 'JavaScript',
         image: [IoLogoJavascript],
-        path: '/js'
+        path: '/'
     },
     {
         id: 1,
-        text: 'React',
+        text: 'ReactJS',
         image: [FaReact],
-        path: '/react'
+        path: '/'
     },
     {
         id: 2,
         text: 'Node.js',
         image: [FaNodeJs],
-        path: '/nodejs'
+        path: '/'
     },
     {
         id: 3,
         text: 'Next.js',
         image: [TbBrandNextjs],
-        path: '/nextjs'
+        path: '/'
     },
     {
         id: 4,
         text: 'Solidity',
         image: [SiSolidity],
-        path: '/solidity'
+        path: '/'
     },
     {
         id: 5,
@@ -126,36 +49,38 @@ export const sidebarHiddenTabsArr: SidebarTabType[] = [
         id: 0,
         text: 'Gaming',
         image: [SiYoutubegaming],
-        path: '/gaming'
+        path: '/'
     },
     {
         id: 1,
         text: 'Music',
         image: [IoIosMusicalNote],
-        path: '/music'
+        path: '/'
     },
     {
         id: 2,
         text: 'Movie',
         image: [TbMovie],
-        path: '/movie'
+        path: '/'
     },
     {
         id: 3,
         text: 'Podcast',
         image: [FaPodcast],
-        path: '/podcast'
+        path: '/'
     },
     {
         id: 4,
         text: 'Travel',
         image: [GiPalmTree],
-        path: '/travel'
+        path: '/'
     },
     {
         id: 5,
         text: 'Sport',
         image: [BiFootball],
-        path: '/sport'
+        path: '/'
     },
 ]
+
+export const emptyArray = new Array(50).fill(null)

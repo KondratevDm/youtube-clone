@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-    BrowserRouter,
+    BrowserRouter as Router,
     Routes,
     Route,
 } from "react-router-dom";
@@ -9,17 +9,18 @@ import {
     Feed,
     Header,
     Sidebar,
-    ChannelDetails
+    ChannelDetails,
+    SearchVideos
 } from '@components'
 
 import './styles/app.scss'
 
 export const App: React.FC = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
-    const [selectedCategory, setSelectedCategory] = useState<string>('JS');
+    const [selectedCategory, setSelectedCategory] = useState<string>('JavaScript');
 
     return (
-        <BrowserRouter>
+        <Router>
             <div>
                 <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
 
@@ -28,11 +29,12 @@ export const App: React.FC = () => {
                     <Routes>
                         <Route path="/" element={<Feed selectedCategory={selectedCategory} />} />
                         <Route path="/channel-details" element={<ChannelDetails />} />
-                        <Route path="hm" element={<div> hm</div>} />
-                        <Route path="/about" element={<div> about</div>} />
+                        <Route path="/hm" element={<div> hm</div>} />
+                        <Route path="/search/:query/" element={<SearchVideos />} />
+                        <Route path="*" element={<div> no match </div>} />
                     </Routes>
                 </div>
             </div>
-        </BrowserRouter>
+        </Router>
     );
 };

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Loader, Error, VideoCard } from '@components';
+import { Loader, Error, Cards } from '@components';
 import { VideoItemType } from '@/types'
 import { useAxios } from '@/hooks/useAxios'
 import './Feed.scss';
@@ -10,26 +10,26 @@ interface FeedProps {
 
 export const Feed: FC<FeedProps> = ({ selectedCategory }) => {
 
-  const { response, error, loading, handleCloseError } = useAxios(selectedCategory);
-
-  console.log(response?.items)
+  const { error, isLoading, handleCloseError, items } = useAxios(selectedCategory);
 
   return (
     <div className="feed">
       <div className="feed__content">
-        {loading && (
-          <Loader />
-        )}
 
-        {response && (
-          response.items.map((item: VideoItemType) => {
+        {items && (
+          items.map((item: VideoItemType, index) => {
             return (
-              <VideoCard
-                key={item.id.videoId}
+              <Cards
+                key={`${index}${item.id.videoId}`} // videos can have the same id :c
                 item={item}
+                id="VideoCardFeed"
               />
             )
           })
+        )}
+
+        {isLoading && (
+          <Loader type="feed" />
         )}
 
         {!!error && (

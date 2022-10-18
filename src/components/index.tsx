@@ -5,4 +5,5 @@ export * from "./Sidebar/Sidebar";
 export * from "./ChannelDetails/ChannelDetails"
 export * from "./Loader/Loader"
 export * from "./Error/Error"
-export * from "./VideoCard/VideoCard"
+export * from "./SearchVideos/SearchVideos"
+export * from "./Cards/index"
