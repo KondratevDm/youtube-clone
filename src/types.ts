@@ -4,7 +4,8 @@ import React from 'react';
 export interface VideoItemType {
     id: {
         kind: string,
-        videoId: string,
+        videoId?: string,
+        channelId?: string,
     },
     kind: string,
     snippet: {

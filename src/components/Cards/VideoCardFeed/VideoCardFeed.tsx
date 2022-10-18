@@ -3,17 +3,22 @@ import { changeDateFormat } from '@utils'
 import { VideoItemType } from '@/types'
 import WithOutPrewiewLogo from '@assets/images/high.jpg'
 
-interface VideoCardProps {
+interface VideoCardFeedProps {
     item: VideoItemType;
 }
 
-export const VideoCard: FC<VideoCardProps> = ({ item }) => {
+export const VideoCardFeed: FC<VideoCardFeedProps> = ({ item }) => {
     return (
         <div key={item.id.videoId} className="feed__content__item">
             <img
                 className="feed__content__item__img"
                 alt="Video prewiew"
-                src={item.snippet.thumbnails.high.url ? item.snippet.thumbnails.high.url : WithOutPrewiewLogo}
+                src={item.snippet.thumbnails.high.url}
+                onError={({ currentTarget }) => {
+                    currentTarget.onerror = null;
+                    currentTarget.src = WithOutPrewiewLogo;
+                }}
+
             />
             <p className="feed__content__item__title">{item.snippet.title}</p>
             <p className="feed__content__item__channel-name">{item.snippet.channelTitle}</p>

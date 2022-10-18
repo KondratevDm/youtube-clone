@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 import axios from 'axios';
 
 // interface AxiosParams {
@@ -32,33 +33,44 @@ const options = {
         'X-RapidAPI-Host': process.env.RAPID_API_HOST
     }
 };
-
-export const useAxios = (selectedCategory: string) => {
-    const [response, setResponse] = useState(null);
+// export const useAxios = (query: string, nextPageToken: string | null = null) => {
+export const useAxios = (query: string) => {
+    const [prevQuery, setPrevQuery] = useState(null);
+    const [items, setItems] = useState([]);
+    const [pageToken, setPageToken] = useState(null);
     const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(true);
+    const { nextPageToken } = useInfiniteScroll(query, pageToken);
 
     const handleCloseError = () => {
         setError(null)
     }
 
-    const fetchData = async (selectedCategory: string) => {
+    const fetchData = async (query: string, nextPageToken: string | null) => {
         try {
-            setLoading(true)
-            setResponse(null)
-            const { data } = await axios.get(`${process.env.BASE_API_URL}/search?part=snippet&q=${selectedCategory}`, options);
-            setResponse(data);
+            if (prevQuery !== query) {
+                setItems([])
+            }
+            setIsLoading(true)
+            const { data } = await axios.get(`${process.env.BASE_API_URL}/search?part=snippet&q=${query}${nextPageToken && (prevQuery === query) ? `&pageToken=${nextPageToken}` : ''}`, options);
+            if (prevQuery === query) {
+                setItems([...items, ...data.items])
+            } else {
+                setItems(data.items)
+            }
+            setPageToken(data.nextPageToken);
         } catch (error) {
             setError(error);
         } finally {
-            setLoading(false);
+            setIsLoading(false);
+            setPrevQuery(query)
         }
     };
 
     useEffect(() => {
-        fetchData(selectedCategory);
-    }, [selectedCategory]);
+        fetchData(query, nextPageToken);
+    }, [query, nextPageToken]);
 
-    return { response, error, loading, handleCloseError };
+    return { pageToken, items, error, isLoading, handleCloseError };
 };
 

@@ -1,19 +1,24 @@
-import React from 'react';
-import Skeleton from '@mui/material/Skeleton';
+import React, { FC } from 'react';
+import { FeedLoader } from './FeedLoader/FeedLoader'
+import { SearchLoader } from './SearchLoader/SearchLoader'
 
-export const Loader = () => {
-    const emptyArray = new Array(16).fill(null)
-    return (
-        <>
-            {emptyArray.map((_, index) => {
-                return (
-                    <div key={index} className="feed__content__item">
-                        <Skeleton variant="rectangular" width={276} height={155} sx={{ backgroundColor: '#212121' }} />
-                        <Skeleton sx={{ backgroundColor: '#212121' }} />
-                        <Skeleton width="60%" sx={{ backgroundColor: '#212121' }} />
-                    </div>
-                )
-            })}
-        </>
-    )
+interface LoaderProps {
+    type: string
+}
+
+interface LoaderProxyType {
+    feed: () => JSX.Element,
+    search: () => JSX.Element,
+}
+
+export const Loader: FC<LoaderProps> = ({ type }) => {
+
+    const loaderByType: LoaderProxyType = {
+        feed: FeedLoader,
+        search: SearchLoader,
+    }
+
+    const CurrentLoader = loaderByType[type as keyof LoaderProxyType]
+
+    return <CurrentLoader />
 };
