@@ -1,0 +1,167 @@
+.video {
+    width: 100vw;
+    background: #181818;
+    color: white;
+    min-height: calc(100vh - 56px);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto';
+    font-style: normal;
+    box-sizing: border-box;
+
+    &__info {
+        margin-top:15px;
+
+        &__title {
+            font-size: 18px;
+            line-height: 26px;
+        }
+
+        &__view {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            &__view-count {
+                color: #AAAAAA;
+                font-size: 14px;
+                margin-right: 20px;
+            }
+    
+            &__button-block {
+                cursor: pointer;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-right: 20px;
+                p {
+                    margin-left:5px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+        &__content-details {
+            margin-top:15px;
+
+            &__about-autor {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &__channel-info {
+                    display: flex;
+                    align-items: center;
+
+                    &__title {
+                        font-size: 14px;
+                    }
+
+                    &__publish-time {
+                        margin-top: 5px;
+                        font-size: 12px;
+                        opacity: 0.3;
+                    }
+
+                    div {
+                        margin-right: 20px;
+                    }
+                }
+            }
+
+            &__description {
+                // margin-top: 15px;
+                margin-left: 70px;
+                width:60%;
+
+                pre {
+                    font-family: 'Roboto';
+                    font-style: normal;
+                    font-size: 14px;
+                    white-space: pre-line;
+                    overflow-wrap: break-word;
+                    word-break: break-all;
+                }
+            }
+
+            &__subscribe {
+                width: 140px;
+                height: 37px;
+                background-color: #CC0000;
+                color: white;
+                font-size: 14px;
+                font-weight: bold;
+                border: 0;
+                cursor: pointer;
+            }
+        }
+
+        &__comment-count {
+            font-size: 16px;
+        }
+
+        &__comment {
+            margin-top: 15px;
+            &__about-autor {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &__channel-info {
+                    display: flex;
+                    align-items: flex-start;
+
+                    &__block{
+                        display: flex;
+                        align-items: flex-start;
+
+                        &__title {
+                            font-size: 13px;
+                        }
+                        
+                        &__publish-time {
+                            // margin-top: 5px;
+                            font-size: 12px;
+                            opacity: 0.3;
+                        }
+                    }
+                   
+                    &__comment-text {
+                        margin-top: 5px;
+                        font-size: 14px;
+                        opacity: 0.7;
+                        white-space: pre-line;
+                        overflow-wrap: break-word;
+                        word-break: break-all;
+                    }
+
+                    div {
+                        margin-right: 15px;
+                    }
+                }
+            }
+
+        }
+    }
+
+    &__container{
+        box-sizing: border-box;
+        width: 100%;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        min-height: calc(100vh - 56px);
+        
+
+        &__player {
+            max-width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 6          
+        }
+    }
+
+    &__divider {
+        border-top: 1px solid rgb(224, 224, 224);
+        opacity: 0.3;
+    }
+}

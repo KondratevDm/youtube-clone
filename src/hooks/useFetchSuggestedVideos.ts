@@ -33,8 +33,8 @@ const options = {
         'X-RapidAPI-Host': process.env.RAPID_API_HOST
     }
 };
-// export const useAxios = (query: string, nextPageToken: string | null = null) => {
-export const useAxios = (query: string) => {
+
+export const useFetchSuggestedVideos = (query: string) => {
     const [prevQuery, setPrevQuery] = useState(null);
     const [items, setItems] = useState([]);
     const [pageToken, setPageToken] = useState(null);
@@ -69,7 +69,7 @@ export const useAxios = (query: string) => {
 
     useEffect(() => {
         fetchData(query, nextPageToken);
-    }, [query, nextPageToken]);
+    }, [query, nextPageToken]); // eslint-disable-line react-hooks/exhaustive-deps
 
     return { pageToken, items, error, isLoading, handleCloseError };
 };
