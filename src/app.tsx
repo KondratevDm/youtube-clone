@@ -10,7 +10,8 @@ import {
     Header,
     Sidebar,
     ChannelDetails,
-    SearchVideos
+    SearchVideos,
+    Video
 } from '@components'
 
 import './styles/app.scss'
@@ -23,14 +24,13 @@ export const App: React.FC = () => {
         <Router>
             <div>
                 <Header isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-
                 <div className="container">
                     <Sidebar isSidebarOpen={isSidebarOpen} selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                     <Routes>
                         <Route path="/" element={<Feed selectedCategory={selectedCategory} />} />
-                        <Route path="/channel-details" element={<ChannelDetails />} />
-                        <Route path="/hm" element={<div> hm</div>} />
                         <Route path="/search/:query/" element={<SearchVideos />} />
+                        <Route path="/watch/:videoId" element={<Video />} />
+                        <Route path="/channel/:channelId" element={<ChannelDetails />} />
                         <Route path="*" element={<div> no match </div>} />
                     </Routes>
                 </div>

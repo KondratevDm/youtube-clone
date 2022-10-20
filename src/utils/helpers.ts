@@ -4,3 +4,7 @@ export const changeDateFormat = (date: Date) => {
     const day = new Date(date).getDate()
     return `${day < 10 ? `0${day}` : day}.${(month + 1) < 10 ? `0${month + 1}` : month + 1}.${year}`
 }
+
+export const numberWithSpaces = (num: string) => {
+    return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}

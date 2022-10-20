@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useAxios } from '@/hooks/useAxios'
+import { useFetchSuggestedVideos } from '@/hooks/useFetchSuggestedVideos'
 import { VideoItemType } from '@/types'
 import { Cards, Error, Loader } from '@components'
 import './SearchVideos.scss'
 
 export const SearchVideos = () => {
     const { query } = useParams();
-    const { error, isLoading, handleCloseError, items } = useAxios(query);
+    const { error, isLoading, handleCloseError, items } = useFetchSuggestedVideos(query);
 
     useEffect(() => {
         window.scrollTo(0, 0)

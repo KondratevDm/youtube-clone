@@ -1,6 +1,65 @@
 import React from 'react';
 
 
+export interface VideoCommentsType {
+    kind: string,
+    id: string,
+    snippet: {
+        canReply: string,
+        isPublic: string,
+        totalReplyCount: number,
+        videoId: string,
+        topLevelComment: {
+            kind: string,
+            id: string,
+            snippet: {
+                authorChannelId: {
+                    value: string
+                },
+                authorChannelUrl: string,
+                authorDisplayName: string,
+                authorProfileImageUrl: string,
+                canRate: boolean,
+                likeCount: number,
+                publishedAt: Date,
+                textDisplay: string,
+                textOriginal: string,
+                updatedAt: Date,
+                videoId: string,
+                viewerRating: string,
+            }
+        }
+    }
+}
+export interface VideoDetailsType {
+    kind: string,
+    id: string,
+    snippet: {
+        publishedAt: Date,
+        channelId: string,
+        title: string,
+        description: string,
+        thumbnails: Object
+        default: Object
+        medium: Object
+        high: Object
+        standard: Object
+        maxres: Object
+        channelTitle: string,
+        tags: string[]
+        categoryId: string,
+        liveBroadcastContent: string,
+        localized: Object
+        defaultAudioLanguage: string,
+        contentDetails: Object
+    }
+    statistics: {
+        commentCount: string,
+        favoriteCount: string,
+        likeCount: string,
+        viewCount: string,
+    }
+}
 export interface VideoItemType {
     id: {
         kind: string,

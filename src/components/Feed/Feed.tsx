@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Loader, Error, Cards } from '@components';
 import { VideoItemType } from '@/types'
-import { useAxios } from '@/hooks/useAxios'
+import { useFetchSuggestedVideos } from '@/hooks/useFetchSuggestedVideos'
 import './Feed.scss';
 
 interface FeedProps {
@@ -10,7 +10,9 @@ interface FeedProps {
 
 export const Feed: FC<FeedProps> = ({ selectedCategory }) => {
 
-  const { error, isLoading, handleCloseError, items } = useAxios(selectedCategory);
+  const { error, isLoading, handleCloseError, items } = useFetchSuggestedVideos(selectedCategory);
+  
+  console.log(items)
 
   return (
     <div className="feed">

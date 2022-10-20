@@ -21,13 +21,13 @@ export const useInfiniteScroll = (query: string, pageToken: string | null) => {
         return () => {
             document.removeEventListener('scroll', scrollHandler)
         }
-    }, [pageToken])
+    }, [pageToken]) // eslint-disable-line react-hooks/exhaustive-deps
 
 
     useEffect(() => {
         window.scrollTo(0, 0)
         setNextPageToken(null)
-    }, [query]);
+    }, [query]); 
 
     return { nextPageToken };
 };
