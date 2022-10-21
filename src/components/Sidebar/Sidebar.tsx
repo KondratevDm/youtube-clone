@@ -1,5 +1,5 @@
 import React, { useState, FC } from 'react';
-
+// import { useClientWidth } from '@/hooks/useClientWidth'
 import { SidebarTabs } from './SidebarTabs'
 import { Drawer, sidebarTabsArr, sidebarHiddenTabsArr } from '@utils';
 import Collapse from '@mui/material/Collapse';
@@ -18,6 +18,10 @@ interface SidebarProps {
 
 export const Sidebar: FC<SidebarProps> = ({ isSidebarOpen, selectedCategory, setSelectedCategory }) => {
 
+  // const { windowWidth } = useClientWidth();
+
+  // console.log('windowWidth', windowWidth)
+
   const [isHiddenTabsShow, setIsHiddenTabsShow] = useState(false)
 
   const showHiddenTabsHandle = () => {
@@ -26,6 +30,7 @@ export const Sidebar: FC<SidebarProps> = ({ isSidebarOpen, selectedCategory, set
 
   return (
     <Box>
+      {/* <Drawer variant="permanent" open={windowWidth > 900 && isSidebarOpen}> */}
       <Drawer variant="permanent" open={isSidebarOpen}>
         <List sx={{ paddingTop: '0' }}>
           <SidebarTabs

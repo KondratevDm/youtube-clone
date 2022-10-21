@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import { useFetchVideoDetails } from '@/hooks/useFetchVideoDetails'
 import Snackbar, { SnackbarOrigin } from '@mui/material/Snackbar';
-import './Video.scss'
-
 import { VideoComments } from './VideoComments/VideoComments';
 import { Error } from '@components';
 import { Player } from './Player/Player';
 import { VideoInformation } from './VideoInformation/VideoInformation';
 
+import './Video.scss'
 export interface State extends SnackbarOrigin {
     open: boolean;
 }
