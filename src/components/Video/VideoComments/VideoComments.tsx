@@ -11,8 +11,6 @@ export const VideoComments: FC<VideoCommentsProps> = ({ videoId, commentCount })
     const { comments } = useFetchVideoComments(videoId);
 
     const commentsData = comments?.map((it) => it.snippet.topLevelComment.snippet)
-    console.log(commentsData)
-
 
     return (
         <div className="video__info">
@@ -29,7 +27,6 @@ export const VideoComments: FC<VideoCommentsProps> = ({ videoId, commentCount })
                                         <div className="video__info__comment__about-autor__channel-info__block__title">{item.authorDisplayName}</div>
                                         <div className="video__info__comment__about-autor__channel-info__block__publish-time">{`${changeDateFormat(item.publishedAt)}`}</div>
                                     </div>
-
                                     <div className="video__info__comment__about-autor__channel-info__comment-text">{item.textOriginal}</div>
                                 </div>
                             </div>

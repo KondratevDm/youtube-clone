@@ -13,6 +13,9 @@ export const SearchVideos = () => {
         window.scrollTo(0, 0)
     }, [])
 
+    
+    console.log(items)
+
 
     return (
         <div className="searchVideos">

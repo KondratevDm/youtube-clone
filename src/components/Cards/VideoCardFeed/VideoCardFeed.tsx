@@ -23,10 +23,7 @@ export const VideoCardFeed: FC<VideoCardFeedProps> = ({ item }) => {
 
                 />
                 <p className="feed__content__item__title">{item.snippet.title}</p>
-                {/* <Link to={`/channel/${item.snippet.channelId}`}> */}
-                    <p className="feed__content__item__channel-name">{item.snippet.channelTitle}</p>
-                {/* </Link> */}
-
+                <p className="feed__content__item__channel-name">{item.snippet.channelTitle}</p>
                 <p className="feed__content__item__views">{`${changeDateFormat(item.snippet.publishTime)}`}</p>
             </div>
         </Link>
