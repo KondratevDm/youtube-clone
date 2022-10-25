@@ -1,40 +1,42 @@
 import React, { FC } from 'react';
 import { useFetchVideoComments } from '@/hooks/useFetchVideoComments'
-import { changeDateFormat, numberWithSpaces } from '@utils'
-import { Avatar } from '@mui/material';
+import { numberWithSpaces } from '@utils'
+import { Commentary } from './Commentary/Commentary';
+import { Error } from '@components';
+
 interface VideoCommentsProps {
     videoId: string,
     commentCount: string
 }
 
 export const VideoComments: FC<VideoCommentsProps> = ({ videoId, commentCount }) => {
-    const { comments } = useFetchVideoComments(videoId);
+    const { comments, error, handleCloseError } = useFetchVideoComments(videoId);
 
     const commentsData = comments?.map((it) => it.snippet.topLevelComment.snippet)
 
     return (
         <div className="video__info">
             <p className="video__info__comment-count">{numberWithSpaces(commentCount)} comments</p>
-
             {comments && (
-                commentsData.map((item, index) => {
+                commentsData.map((item) => {
                     return (
-                        <div key={index} className="video__info__comment">
-                            <div className="video__info__comment__about-autor__channel-info">
-                                <Avatar sx={{ bgcolor: "#7499bc", width: '40px', height: '40px' }}>{item.authorDisplayName[0].toUpperCase()}</Avatar>
-                                <div>
-                                    <div className="video__info__comment__about-autor__channel-info__block">
-                                        <div className="video__info__comment__about-autor__channel-info__block__title">{item.authorDisplayName}</div>
-                                        <div className="video__info__comment__about-autor__channel-info__block__publish-time">{`${changeDateFormat(item.publishedAt)}`}</div>
-                                    </div>
-                                    <div className="video__info__comment__about-autor__channel-info__comment-text">{item.textOriginal}</div>
-                                </div>
-                            </div>
-                        </div>
+                        <Commentary
+                            key={`${item.authorChannelId.value}${item.publishedAt}`}
+                            authorChannelId={item.authorChannelId.value}
+                            authorDisplayName={item.authorDisplayName}
+                            publishedAt={item.publishedAt}
+                            textOriginal={item.textOriginal}
+                        />
                     )
                 })
             )}
 
+            {!!error && (
+                <Error
+                    message={error.message}
+                    handleCloseError={handleCloseError}
+                />
+            )}
         </div>
     )
 };
