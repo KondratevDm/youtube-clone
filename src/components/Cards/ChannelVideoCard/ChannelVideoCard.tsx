@@ -5,19 +5,19 @@ import WithOutPrewiewLogo from '@assets/images/high.jpg'
 import { Link } from 'react-router-dom';
 import { useNavigateToPath } from '@/hooks/useNavigateToPath'
 
-interface VideoCardFeedProps {
+interface ChannelVideoCardProps {
     item: VideoItemType;
 }
 
-export const VideoCardFeed: FC<VideoCardFeedProps> = ({ item }) => {
+export const ChannelVideoCard: FC<ChannelVideoCardProps> = ({ item }) => {
 
     const { navigateToPath } = useNavigateToPath();
 
     return (
         <Link to={`/watch/${item.id.videoId}`}>
-            <div key={item.id.videoId} className="feed__content__item">
+            <div key={item.id.videoId} className="channelVideos__content__item">
                 <img
-                    className="feed__content__item__img"
+                    className="channelVideos__content__item__img"
                     alt="Video prewiew"
                     src={item.snippet.thumbnails.high.url}
                     onError={({ currentTarget }) => {
@@ -26,15 +26,14 @@ export const VideoCardFeed: FC<VideoCardFeedProps> = ({ item }) => {
                     }}
 
                 />
-                <p className="feed__content__item__title">{item.snippet.title}</p>
-                <p className="feed__content__item__channel-name"
+                <p className="channelVideos__content__item__title">{item.snippet.title}</p>
+                <p className="channelVideos__content__item__channel-name"
                     onClick={(e) => navigateToPath(e)(`/channel/${item.snippet.channelId}`)}
                 >
                     {item.snippet.channelTitle}
                 </p>
-                <p className="feed__content__item__views">{`${changeDateFormat(item.snippet.publishTime)}`}</p>
+                <p className="channelVideos__content__item__views">{`${changeDateFormat(item.snippet.publishTime)}`}</p>
             </div>
         </Link>
-
     )
 };

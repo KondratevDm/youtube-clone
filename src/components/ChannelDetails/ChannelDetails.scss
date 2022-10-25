@@ -1,1 +1,74 @@
-.ChannelDetails {}
+.channelDetails {
+    width: 100vw;
+    background: #181818;
+    min-height: calc(100vh - 56px);
+    color: #fff;
+
+    &__content{
+
+        box-sizing: border-box;
+        width: 100%;
+        min-height: calc(100vh - 56px);
+
+        &__banner {
+            width:100%;
+            aspect-ratio: 16/3;
+        }
+
+        &__container {
+            width: calc(100% - 160px);
+            background-color: #181818;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+        }
+
+        &__about-autor {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            
+
+            &__channel-logo{
+                width: 80px;
+                height: 80px;
+                border-radius: 50px;
+                margin-right: 10px;
+                
+            }
+            &__channel-info {
+                display: flex;
+                align-items: center;
+        
+                &__title {
+                    font-size: 24px;
+                    color: #fff
+                }
+        
+                &__publish-time {
+                    color: #fff;
+                    margin-top: 5px;
+                    font-size: 14px;
+                    opacity: 0.3;
+                }
+
+                &__subscribe {
+                    width: 140px;
+                    height: 37px;
+                    background-color: #CC0000;
+                    color: white;
+                    font-size: 14px;
+                    font-weight: bold;
+                    border: 0;
+                    cursor: pointer;
+                }
+        
+                div {
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+
+    
+}

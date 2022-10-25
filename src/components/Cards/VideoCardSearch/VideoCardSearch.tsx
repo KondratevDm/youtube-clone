@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { VideoItemType } from '@/types'
 import { changeDateFormat } from '@utils'
 import Avatar from '@mui/material/Avatar';
-
+import { useNavigateToPath } from '@/hooks/useNavigateToPath'
 import './VideoCardSearch.scss'
 import { Link } from 'react-router-dom';
 
@@ -11,6 +11,9 @@ interface VideoCardSearchProps {
 }
 
 export const VideoCardSearch: FC<VideoCardSearchProps> = ({ item }) => {
+
+    const { navigateToPath } = useNavigateToPath();
+
     return (
         <>
             <Link to={`/watch/${item.id.videoId}`}>
@@ -27,7 +30,12 @@ export const VideoCardSearch: FC<VideoCardSearchProps> = ({ item }) => {
                         <p className="searchVideos__content__views">{`${changeDateFormat(item.snippet.publishTime)}`}</p>
                         <div className="searchVideos__content__channel-name-container">
                             <Avatar sx={{ bgcolor: "#ff0000", width: '24px', height: '24px' }}>{item.snippet.channelTitle[0].toUpperCase()}</Avatar>
-                            <p className="searchVideos__content__channel-name">{item.snippet.channelTitle}</p>
+                            <p
+                                className="searchVideos__content__channel-name"
+                                onClick={(e) => navigateToPath(e)(`/channel/${item.snippet.channelId}`)}
+                            >
+                                {item.snippet.channelTitle}
+                            </p>
                         </div>
                         {item.snippet.description && (
                             <p className="searchVideos__content__description">{item.snippet.description}</p>

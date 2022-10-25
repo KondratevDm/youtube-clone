@@ -55,6 +55,8 @@
 
                     &__title {
                         font-size: 14px;
+                        cursor: pointer;
+                        color: #fff
                     }
 
                     &__publish-time {
@@ -117,6 +119,8 @@
 
                         &__title {
                             font-size: 13px;
+                            color: #fff;
+                            cursor: pointer;
                         }
                         
                         &__publish-time {

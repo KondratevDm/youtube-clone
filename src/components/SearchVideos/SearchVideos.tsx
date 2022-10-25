@@ -20,6 +20,7 @@ export const SearchVideos = () => {
     return (
         <div className="searchVideos">
             <div className="searchVideos__content">
+
                 {items && (
                     items.map((item: VideoItemType, index) => {
                         return (
