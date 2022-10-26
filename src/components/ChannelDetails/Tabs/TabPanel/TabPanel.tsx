@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 
 
-
 interface TabPanelProps {
     children?: React.ReactNode;
     index: number;

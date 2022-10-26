@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { VideoDescription } from '../VideoDescription/VideoDescription';
 import { AutorDetails } from './AutorDetails/AutorDetails';
 

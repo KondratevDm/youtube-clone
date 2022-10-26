@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { VideoItemType } from '@/types'
 import { ChannelCard } from './ChannelCard/ChannelCard';
 import { VideoCardSearch } from './VideoCardSearch/VideoCardSearch';
@@ -7,11 +8,11 @@ import { ChannelVideoCard } from './ChannelVideoCard/ChannelVideoCard';
 
 interface CardsProps {
     item: VideoItemType,
-    id: string
+    type: string
 }
 
-export const Cards: FC<CardsProps> = ({ item, id }) => {
-    switch (id) {
+export const Cards: FC<CardsProps> = ({ item, type }) => {
+    switch (type) {
         case 'ChannelCard':
             return <ChannelCard item={item} />;
         case 'VideoCardSearch':

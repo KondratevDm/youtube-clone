@@ -95,16 +95,19 @@ export interface VideoItemType {
     }
 }
 
-export interface ReactIconsFunction {
-    (props: { color: string, size: number }): React.ReactElement
-}
-
 export interface SidebarTabType {
     id: number,
     text: string,
-    image: Array<ReactIconsFunction>,
+    image: Array<string>,
     path?: string
 };
+
+export interface IconProps {
+    text: string,
+    image: Array<string>,
+    isShowMoreItem: boolean,
+    isHiddenTabsShow: boolean
+}
 
 export interface SidebarProps extends SidebarTabType {
     isSidebarOpen: boolean,
@@ -113,13 +116,6 @@ export interface SidebarProps extends SidebarTabType {
     isHiddenTabsShow: boolean,
     selectedCategory: string,
     setSelectedCategory: React.Dispatch<React.SetStateAction<string>>,
-}
-
-export interface IconProps {
-    text: string,
-    image: Array<ReactIconsFunction>,
-    isShowMoreItem: boolean,
-    isHiddenTabsShow: boolean
 }
 
 export interface SidebarStylesType {

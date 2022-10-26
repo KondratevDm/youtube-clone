@@ -1,13 +1,14 @@
 import React, { FC } from 'react';
-import { SidebarProps } from '@/types'
 import { Link } from "react-router-dom";
-
-import { Icon } from './Icon'
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
+
+import { SidebarProps } from '@/types'
+import { Icon } from './Icon'
+
 
 export const SidebarItem: FC<SidebarProps> = ({ id, isSidebarOpen, text, image, styles, showHiddenTabsHandle, path, isHiddenTabsShow, selectedCategory, setSelectedCategory }) => {
 

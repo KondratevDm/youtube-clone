@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
-import { VideoContent } from './VideoContent/VideoContent';
-import { useFetchVideoDetails } from '@/hooks/useFetchVideoDetails'
+import { useNavigate } from "react-router-dom";
+
 import { Error, Loader } from '@components';
+import { useFetchVideoDetails } from '@/hooks/useFetchVideoDetails'
+import { VideoContent } from './VideoContent/VideoContent';
 
 import './Video.scss'
 
 export const Video = () => {
+    const navigate = useNavigate();
     const { videoId } = useParams();
+    
+    useEffect(() => {
+        if (videoId === 'undefined') {
+            return navigate("/not-found");
+        }
+    });
 
     const { item, error, handleCloseError, isLoading } = useFetchVideoDetails(videoId);
 

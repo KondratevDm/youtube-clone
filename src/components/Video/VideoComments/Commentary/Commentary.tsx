@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
-import { changeDateFormat } from '@utils'
 import { Avatar } from '@mui/material';
 import { Link } from 'react-router-dom';
+
+import { changeDateFormat } from '@utils'
+
 
 interface CommentaryProps {
     authorChannelId: string,

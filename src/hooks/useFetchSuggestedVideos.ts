@@ -1,28 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 import axios from 'axios';
 
-// interface AxiosParams {
-//     method: string,
-//     url: string,
-//     params: {
-//         relatedToVideoId?: string,
-//         part?: string,
-//         type?: string,
-//         maxResults?: string,
-//         q?: string,
-//         regionCode?: string,
-//         order?: string,
-//         videoId?: string,
-//         id?: string,
-//         channelId?: string,
-//         playlistId?: string
-//     },
-//     headers: {
-//         'X-RapidAPI-Key': string,
-//         'X-RapidAPI-Host': string
-//     }
-// }
+import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 
 const options = {
     params: {
@@ -35,6 +14,7 @@ const options = {
 };
 
 export const useFetchSuggestedVideos = (query: string) => {
+    
     const [prevQuery, setPrevQuery] = useState(null);
     const [items, setItems] = useState([]);
     const [pageToken, setPageToken] = useState(null);
@@ -52,7 +32,7 @@ export const useFetchSuggestedVideos = (query: string) => {
                 setItems([])
             }
             setIsLoading(true)
-            const { data } = await axios.get(`${process.env.BASE_API_URL}/search?part=snippet&q=${query}${nextPageToken && (prevQuery === query) ? `&pageToken=${nextPageToken}` : ''}`, options);
+            const { data } = await axios.get(`${process.env.BASE_API_URL}/search?part=snippet,id&q=${query}${nextPageToken && (prevQuery === query) ? `&pageToken=${nextPageToken}` : ''}`, options);
             if (prevQuery === query) {
                 setItems([...items, ...data.items])
             } else {

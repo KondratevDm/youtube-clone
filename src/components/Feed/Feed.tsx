@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
+
 import { Loader, Error, Cards } from '@components';
 import { VideoItemType } from '@/types'
 import { useFetchSuggestedVideos } from '@/hooks/useFetchSuggestedVideos'
+
 import './Feed.scss';
 
 interface FeedProps {
@@ -12,8 +14,6 @@ export const Feed: FC<FeedProps> = ({ selectedCategory }) => {
 
   const { error, isLoading, handleCloseError, items } = useFetchSuggestedVideos(selectedCategory);
   
-  console.log(items)
-
   return (
     <div className="feed">
       <div className="feed__content">
@@ -24,7 +24,7 @@ export const Feed: FC<FeedProps> = ({ selectedCategory }) => {
               <Cards
                 key={`${index}${item.id.videoId}`} // videos can have the same id :c
                 item={item}
-                id="VideoCardFeed"
+                type="VideoCardFeed"
               />
             )
           })
@@ -36,7 +36,7 @@ export const Feed: FC<FeedProps> = ({ selectedCategory }) => {
 
         {!!error && (
           <Error
-            message={error.message}
+            message={error.response.data.message}
             handleCloseError={handleCloseError}
           />
         )}

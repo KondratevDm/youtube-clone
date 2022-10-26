@@ -10,7 +10,6 @@ interface VideoContentProps {
     videoId: string
 }
 
-
 export const VideoContent: FC<VideoContentProps> = ({ item, videoId }) => {
     return (
         <>

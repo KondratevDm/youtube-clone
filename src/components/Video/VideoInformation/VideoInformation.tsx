@@ -1,9 +1,9 @@
 import React, { FC, useState } from 'react';
+import Snackbar from '@mui/material/Snackbar';
+
 import { VideoDetailsType } from '@/types';
 import { VideoDetails } from './VideoDetails/VideoDetails';
 import { ChannelDetailsVideo } from './ChannelDetailsVideo/ChannelDetails';
-
-import Snackbar from '@mui/material/Snackbar';
 
 interface VideoInformationProps {
     item: VideoDetailsType,

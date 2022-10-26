@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { useFetchSuggestedVideos } from '@/hooks/useFetchSuggestedVideos'
 import { VideoItemType } from '@/types'
 import { Cards, Error, Loader } from '@components'
+
 import './SearchVideos.scss'
 
 export const SearchVideos = () => {
@@ -13,20 +15,17 @@ export const SearchVideos = () => {
         window.scrollTo(0, 0)
     }, [])
 
-    
-    console.log(items)
-
-
     return (
         <div className="searchVideos">
             <div className="searchVideos__content">
 
                 {items && (
                     items.map((item: VideoItemType, index) => {
+                        console.log(item)
                         return (
                             <Cards
                                 key={`${index}${item.id.kind === "youtube#channel" ? item.id.channelId : item.id.videoId}`} // videos can have the same id :c
-                                id={item.id.kind === "youtube#channel" ? "ChannelCard" : "VideoCardSearch"}
+                                type={item.id.kind === "youtube#channel" ? "ChannelCard" : "VideoCardSearch"}
                                 item={item}
                             />
                         )
@@ -39,11 +38,11 @@ export const SearchVideos = () => {
 
                 {!!error && (
                     <Error
-                        message={error.message}
+                        message={error.response.data.message}
                         handleCloseError={handleCloseError}
                     />
                 )}
-
+                
             </div>
         </div>
 

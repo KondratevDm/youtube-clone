@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
+
+import { Error } from '@components';
 import { useFetchVideoComments } from '@/hooks/useFetchVideoComments'
 import { numberWithSpaces } from '@utils'
 import { Commentary } from './Commentary/Commentary';
-import { Error } from '@components';
 
 interface VideoCommentsProps {
     videoId: string,
@@ -33,7 +34,7 @@ export const VideoComments: FC<VideoCommentsProps> = ({ videoId, commentCount })
 
             {!!error && (
                 <Error
-                    message={error.message}
+                    message={error.response.data.message}
                     handleCloseError={handleCloseError}
                 />
             )}

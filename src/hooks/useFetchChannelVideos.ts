@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
 import axios from 'axios';
+
+import { useInfiniteScroll } from '@/hooks/useInfiniteScroll'
+
 
 const options = {
     params: {
@@ -13,6 +15,7 @@ const options = {
 };
 
 export const useFetchChannelVideos = (channelId: string) => {
+    
     const [prevQuery, setPrevQuery] = useState(null);
     const [items, setItems] = useState([]);
     const [pageToken, setPageToken] = useState(null);
@@ -30,7 +33,7 @@ export const useFetchChannelVideos = (channelId: string) => {
                 setItems([])
             }
             setIsLoading(true)
-            const { data } = await axios.get(`${process.env.BASE_API_URL}/search?part=snippet,id&channelId=${channelId}${nextPageToken && (prevQuery === channelId) ? `&pageToken=${nextPageToken}` : ''}`, options);
+            const { data } = await axios.get(`${process.env.BASE_API_URL}/search?part=snippet,id&order=date&channelId=${channelId}${nextPageToken && (prevQuery === channelId) ? `&pageToken=${nextPageToken}` : ''}`, options);
             if (prevQuery === channelId) {
                 setItems([...items, ...data.items])
             } else {

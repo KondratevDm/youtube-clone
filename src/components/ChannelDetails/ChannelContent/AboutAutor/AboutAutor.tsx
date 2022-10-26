@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
-import { numberWithSpaces } from '@utils'
 import { Snackbar } from '@mui/material';
+
+import { numberWithSpaces } from '@utils'
 
 interface AboutAutorProps {
     logoUrl: string,
@@ -15,7 +16,6 @@ interface AboutAutorProps {
 
 export const AboutAutor: FC<AboutAutorProps> = ({ logoUrl, title, statistics }) => {
     const [openSnackBar, setOpenSnackBar] = useState(false)
-
 
     const handleClick = () => {
         setOpenSnackBar(true);

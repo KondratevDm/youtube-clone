@@ -1,10 +1,13 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
+
 import { VideoItemType } from '@/types'
 import { changeDateFormat } from '@utils'
-import Avatar from '@mui/material/Avatar';
 import { useNavigateToPath } from '@/hooks/useNavigateToPath'
+import Avatar from '@mui/material/Avatar';
+
 import './VideoCardSearch.scss'
-import { Link } from 'react-router-dom';
+
 
 interface VideoCardSearchProps {
     item: VideoItemType
@@ -40,7 +43,6 @@ export const VideoCardSearch: FC<VideoCardSearchProps> = ({ item }) => {
                         {item.snippet.description && (
                             <p className="searchVideos__content__description">{item.snippet.description}</p>
                         )}
-
                     </div>
                 </div>
             </Link>

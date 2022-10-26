@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { Tabs } from '../Tabs/Tabs';
 import { ChannelHeader } from './ChannelHeader/ChannelHeader';
 import { AboutAutor } from './AboutAutor/AboutAutor';

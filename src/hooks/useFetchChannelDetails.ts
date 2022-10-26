@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-// import { VideoCommentsType } from '@/types';
 
 const options = {
     params: {
@@ -18,13 +17,11 @@ export const useFetchChannelDetails = (channelId: string) => {
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
-
     const handleCloseError = () => {
         setError(null)
     }
 
     const fetchData = async (channelId: string) => {
-
         try {
             setIsLoading(true)
             const { data } = await axios.get(`${process.env.BASE_API_URL}/channels?part=snippet,statistics&id=${channelId}`, options);

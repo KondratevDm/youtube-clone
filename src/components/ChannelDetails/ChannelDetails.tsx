@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
 import { useParams } from 'react-router';
-import { useFetchChannelDetails } from '@/hooks/useFetchChannelDetails'
-import { ChannelContent } from './ChannelContent/ChannelContent';
-import './ChannelDetails.scss';
+
 import { Error, Loader } from '@components';
+import { ChannelContent } from './ChannelContent/ChannelContent';
+import { useFetchChannelDetails } from '@/hooks/useFetchChannelDetails'
+
+import './ChannelDetails.scss';
 
 export const ChannelDetails: FC = () => {
 

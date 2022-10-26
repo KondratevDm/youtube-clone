@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import { VideoCommentsType } from '@/types';
 
 const options = {
@@ -24,7 +25,6 @@ export const useFetchVideoComments = (videoId: string) => {
     }
 
     const fetchData = async (videoId: string) => {
-
         try {
             setIsLoading(true)
             const { data } = await axios.get(`${process.env.BASE_API_URL}/commentThreads?part=snippet&videoId=${videoId}`, options);
