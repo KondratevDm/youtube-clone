@@ -33,7 +33,7 @@ export const VideoComments: FC<VideoCommentsProps> = ({ videoId, commentCount })
 
             {!!error && (
                 <Error
-                    message={error.message}
+                    message={error.response.data.message}
                     handleCloseError={handleCloseError}
                 />
             )}

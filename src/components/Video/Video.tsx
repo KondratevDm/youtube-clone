@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
+import { useNavigate } from "react-router-dom";
 import { VideoContent } from './VideoContent/VideoContent';
 import { useFetchVideoDetails } from '@/hooks/useFetchVideoDetails'
 import { Error, Loader } from '@components';
@@ -7,7 +8,14 @@ import { Error, Loader } from '@components';
 import './Video.scss'
 
 export const Video = () => {
+    const navigate = useNavigate();
     const { videoId } = useParams();
+
+    useEffect(() => {
+        if (videoId === 'undefined') {
+            return navigate("/not-found");
+        }
+    });
 
     const { item, error, handleCloseError, isLoading } = useFetchVideoDetails(videoId);
 

@@ -36,7 +36,7 @@ export const Feed: FC<FeedProps> = ({ selectedCategory }) => {
 
         {!!error && (
           <Error
-            message={error.message}
+            message={error.response.data.message}
             handleCloseError={handleCloseError}
           />
         )}

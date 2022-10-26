@@ -30,7 +30,7 @@ export const useFetchChannelVideos = (channelId: string) => {
                 setItems([])
             }
             setIsLoading(true)
-            const { data } = await axios.get(`${process.env.BASE_API_URL}/search?part=snippet,id&channelId=${channelId}${nextPageToken && (prevQuery === channelId) ? `&pageToken=${nextPageToken}` : ''}`, options);
+            const { data } = await axios.get(`${process.env.BASE_API_URL}/search?part=snippet,id&order=date&channelId=${channelId}${nextPageToken && (prevQuery === channelId) ? `&pageToken=${nextPageToken}` : ''}`, options);
             if (prevQuery === channelId) {
                 setItems([...items, ...data.items])
             } else {

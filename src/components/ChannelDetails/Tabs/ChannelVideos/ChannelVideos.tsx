@@ -35,7 +35,7 @@ export const ChannelVideos: FC<ChannelVideosProps> = ({ channelId }) => {
 
                 {!!error && (
                     <Error
-                        message={error.message}
+                        message={error.response.data.message}
                         handleCloseError={handleCloseError}
                     />
                 )}

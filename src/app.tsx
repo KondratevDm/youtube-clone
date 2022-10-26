@@ -11,7 +11,8 @@ import {
     Sidebar,
     ChannelDetails,
     SearchVideos,
-    Video
+    Video,
+    NotFound
 } from '@components'
 
 import './styles/app.scss'
@@ -31,7 +32,7 @@ export const App: React.FC = () => {
                         <Route path="/search/:query/" element={<SearchVideos />} />
                         <Route path="/watch/:videoId" element={<Video />} />
                         <Route path="/channel/:channelId" element={<ChannelDetails />} />
-                        <Route path="*" element={<div> no match </div>} />
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                 </div>
             </div>

@@ -52,7 +52,7 @@ export const useFetchSuggestedVideos = (query: string) => {
                 setItems([])
             }
             setIsLoading(true)
-            const { data } = await axios.get(`${process.env.BASE_API_URL}/search?part=snippet&q=${query}${nextPageToken && (prevQuery === query) ? `&pageToken=${nextPageToken}` : ''}`, options);
+            const { data } = await axios.get(`${process.env.BASE_API_URL}/search?part=snippet,id&q=${query}${nextPageToken && (prevQuery === query) ? `&pageToken=${nextPageToken}` : ''}`, options);
             if (prevQuery === query) {
                 setItems([...items, ...data.items])
             } else {
