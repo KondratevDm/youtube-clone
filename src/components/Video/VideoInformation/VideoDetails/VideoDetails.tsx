@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
-import { BiLike, BiDislike } from 'react-icons/bi';
+
 import { numberWithSpaces } from '@utils'
+import Like from '@assets/images/like.svg'
+import Dislike from '@assets/images/dislike.svg'
 
 interface VideoDetailsProps {
     viewCount: string,
@@ -17,11 +19,12 @@ export const VideoDetails: FC<VideoDetailsProps> = ({ title, viewCount, likeCoun
             <div className="video__info__view">
                 <p className="video__info__view__view-count">{numberWithSpaces(viewCount)} views</p>
                 <div className="video__info__view__button-block" onClick={handleClick}>
-                    <BiLike size={24} />
+                    <img className="video__info__view__button-block" src={Like} alt="like"/>
+                
                     <p>{likeCount}</p>
                 </div>
                 <div className="video__info__view__button-block" onClick={handleClick}>
-                    <BiDislike size={24} />
+                    <img src={Dislike} alt="dislike" />
                     <p>Dislike</p>
                 </div>
             </div>

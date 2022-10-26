@@ -1,5 +1,6 @@
 import React from 'react';
 import Skeleton from '@mui/material/Skeleton';
+
 import { emptyArray } from '@utils'
 
 export const SearchLoader = () => {

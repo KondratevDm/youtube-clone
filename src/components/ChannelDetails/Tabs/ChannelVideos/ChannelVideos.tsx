@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
+
 import { Loader, Error, Cards } from '@components';
 import { VideoItemType } from '@/types'
 import { useFetchChannelVideos } from '@/hooks/useFetchChannelVideos'
+
 import './ChannelVideos.scss'
 
 interface ChannelVideosProps {
@@ -12,8 +14,6 @@ export const ChannelVideos: FC<ChannelVideosProps> = ({ channelId }) => {
 
     const { isLoading, handleCloseError, items, error } = useFetchChannelVideos(channelId);
 
-    console.log('items', items)
-
     return (
         <div className="channelVideos">
             <div className="channelVideos__content">
@@ -23,7 +23,7 @@ export const ChannelVideos: FC<ChannelVideosProps> = ({ channelId }) => {
                             <Cards
                                 key={`${index}${item.id.videoId}`} // videos can have the same id :c
                                 item={item}
-                                id="ChannelVideoCard"
+                                type="ChannelVideoCard"
                             />
                         )
                     })
@@ -41,7 +41,6 @@ export const ChannelVideos: FC<ChannelVideosProps> = ({ channelId }) => {
                 )}
             </div>
         </div>
-
     )
 }
 

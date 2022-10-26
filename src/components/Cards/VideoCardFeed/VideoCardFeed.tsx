@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
+
 import { changeDateFormat } from '@utils'
 import { VideoItemType } from '@/types'
 import WithOutPrewiewLogo from '@assets/images/high.jpg'
-import { Link } from 'react-router-dom';
 import { useNavigateToPath } from '@/hooks/useNavigateToPath'
 
 interface VideoCardFeedProps {

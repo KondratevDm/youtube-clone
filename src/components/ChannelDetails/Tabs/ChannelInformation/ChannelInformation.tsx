@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { Description } from './Description/Description';
 import { Statistics } from './Statistics/Statistics';
 

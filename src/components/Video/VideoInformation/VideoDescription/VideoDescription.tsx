@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
-
 import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+
 
 interface VideoDescriptionProps {
     description: string
@@ -26,6 +26,5 @@ export const VideoDescription: FC<VideoDescriptionProps> = ({ description }) => 
                 </AccordionDetails>
             </Accordion>
         </div>
-
     )
 };

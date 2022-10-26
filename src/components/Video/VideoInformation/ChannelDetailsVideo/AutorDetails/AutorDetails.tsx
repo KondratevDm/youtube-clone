@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
+
 import { Avatar } from '@mui/material';
 import { changeDateFormat } from '@/utils';
-import { Link } from 'react-router-dom';
+
 
 interface AutorDetailsProps {
     channelTitle: string,

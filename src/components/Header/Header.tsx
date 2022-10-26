@@ -1,10 +1,9 @@
 import React, { FC } from 'react';
+import { Link } from "react-router-dom";
+
+import { SearchBar } from '@components'
 import HamburgerLogo from '@assets/images/hamburger.svg'
 import YouTubeLogo from '@assets/images/Youtube-Logo.svg'
-import { SearchBar } from '@components'
-import {
-  Link,
-} from "react-router-dom";
 
 import './Header.scss';
 
@@ -20,7 +19,6 @@ export const Header: FC<HeaderProps> = ({ setIsSidebarOpen, isSidebarOpen }) => 
       <Link to="/">
         <img src={YouTubeLogo} alt="YouTube Logo" className="header__logo" />
       </Link>
-
       <SearchBar />
     </div>
   )

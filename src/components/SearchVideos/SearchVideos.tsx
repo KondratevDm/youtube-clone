@@ -25,7 +25,7 @@ export const SearchVideos = () => {
                         return (
                             <Cards
                                 key={`${index}${item.id.kind === "youtube#channel" ? item.id.channelId : item.id.videoId}`} // videos can have the same id :c
-                                id={item.id.kind === "youtube#channel" ? "ChannelCard" : "VideoCardSearch"}
+                                type={item.id.kind === "youtube#channel" ? "ChannelCard" : "VideoCardSearch"}
                                 item={item}
                             />
                         )
@@ -42,7 +42,7 @@ export const SearchVideos = () => {
                         handleCloseError={handleCloseError}
                     />
                 )}
-
+                
             </div>
         </div>
 
