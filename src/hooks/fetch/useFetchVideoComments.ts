@@ -2,16 +2,8 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import { VideoCommentsType } from '@/types';
+import { options } from './options'
 
-const options = {
-    params: {
-        maxResults: '50'
-    },
-    headers: {
-        'X-RapidAPI-Key': process.env.RAPID_API_KEY,
-        'X-RapidAPI-Host': process.env.RAPID_API_HOST
-    }
-};
 
 export const useFetchVideoComments = (videoId: string) => {
 

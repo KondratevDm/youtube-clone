@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 
 import { Error, Loader } from '@components';
 import { ChannelContent } from './ChannelContent/ChannelContent';
-import { useFetchChannelDetails } from '@/hooks/useFetchChannelDetails'
+import { useFetchChannelDetails } from '@/hooks/fetch'
 
 import './ChannelDetails.scss';
 

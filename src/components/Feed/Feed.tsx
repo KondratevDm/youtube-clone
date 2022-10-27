@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { Loader, Error, Cards } from '@components';
 import { VideoItemType } from '@/types'
-import { useFetchSuggestedVideos } from '@/hooks/useFetchSuggestedVideos'
+import { useFetchSuggestedVideos } from '@/hooks/fetch'
 
 import './Feed.scss';
 

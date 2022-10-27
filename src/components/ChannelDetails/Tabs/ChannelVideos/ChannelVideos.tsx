@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { Loader, Error, Cards } from '@components';
 import { VideoItemType } from '@/types'
-import { useFetchChannelVideos } from '@/hooks/useFetchChannelVideos'
+import { useFetchChannelVideos } from '@/hooks/fetch'
 
 import './ChannelVideos.scss'
 

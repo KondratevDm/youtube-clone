@@ -3,7 +3,7 @@ import { useParams } from 'react-router';
 import { useNavigate } from "react-router-dom";
 
 import { Error, Loader } from '@components';
-import { useFetchVideoDetails } from '@/hooks/useFetchVideoDetails'
+import { useFetchVideoDetails } from '@/hooks/fetch'
 import { VideoContent } from './VideoContent/VideoContent';
 
 import './Video.scss'
