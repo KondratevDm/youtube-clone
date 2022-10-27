@@ -18,7 +18,7 @@ import {
 import './styles/app.scss'
 
 export const App: React.FC = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
     const [selectedCategory, setSelectedCategory] = useState<string>('JavaScript');
 
     return (

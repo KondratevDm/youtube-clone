@@ -1,17 +1,53 @@
 .searchBar {
-    color: white;
-    position: absolute;
-    left: 40%;
 
-    input {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 16px;
+
+    &__default-input {
         width:362px;
         height:40px;
         background: #121212;
         border-radius: 2px 0px 0px 2px;     
         cursor: text;
         color: white;
-        border: 0px;
         padding-left: 10px;
+        border: 0px;
+        &:focus {
+            background: #303030;
+        }
+
+        @media screen and (max-width: 600px) {
+            display: none;
+            width: 0
+        }
+    }
+
+    &__hidden-input {
+        width:0px;
+        height:40px;
+        background: #121212;
+        border-radius: 2px 0px 0px 2px;     
+        cursor: text;
+        color: white;
+        border: 0px;
+        display: none;
+        padding-left: 10px;
+        
+        &__show {
+            width: calc(100% - 42px);
+            display: none;
+
+            @media screen and (max-width: 600px) {
+                display: block;
+                position: absolute;
+                left: 15px;
+                top: 7px;
+            }
+        }
+
         &:focus {
             background: #303030;
         }
@@ -20,16 +56,19 @@
     button {
         position: absolute;
         width: 64px;
-        height: 40px;
-        right: 1px;
-        top: 1px;
+        height: 42px;
+        right: 15px;
+        top: 7px;
         background: #303030;
         border: 1px solid #303030;
         border-radius: 0px 2px 2px 0px;
         cursor: pointer;
-        background-image: url("@assets/images/search.svg");
+        background-image: url('@assets/images/search.svg');
         background-repeat: no-repeat;
         background-position: center;
 
+        // @media screen and (max-width: 600px) {
+        //     right: 23px;
+        // }
     }
 }

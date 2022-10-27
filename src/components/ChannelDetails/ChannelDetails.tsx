@@ -13,8 +13,6 @@ export const ChannelDetails: FC = () => {
 
   const { data, error, isLoading, handleCloseError, } = useFetchChannelDetails(channelId);
 
-  console.log(data)
-
   return (
     <div className="channelDetails">
       {data && (

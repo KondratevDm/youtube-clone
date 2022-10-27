@@ -15,10 +15,12 @@ interface HeaderProps {
 export const Header: FC<HeaderProps> = ({ setIsSidebarOpen, isSidebarOpen }) => {
   return (
     <div className="header">
-      <img src={HamburgerLogo} alt="Hamburger" className="header__hamburger" onClick={() => setIsSidebarOpen(!isSidebarOpen)} />
-      <Link to="/">
-        <img src={YouTubeLogo} alt="YouTube Logo" className="header__logo" />
-      </Link>
+      <div className="header__logo-block">
+        <img src={HamburgerLogo} alt="Hamburger" className="header__logo-block__hamburger" onClick={() => setIsSidebarOpen(!isSidebarOpen)} />
+        <Link to="/">
+          <img src={YouTubeLogo} alt="YouTube Logo" className="header__logo-block__logo" />
+        </Link>
+      </div>
       <SearchBar />
     </div>
   )

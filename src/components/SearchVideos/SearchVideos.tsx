@@ -21,7 +21,6 @@ export const SearchVideos = () => {
 
                 {items && (
                     items.map((item: VideoItemType, index) => {
-                        console.log(item)
                         return (
                             <Cards
                                 key={`${index}${item.id.kind === "youtube#channel" ? item.id.channelId : item.id.videoId}`} // videos can have the same id :c

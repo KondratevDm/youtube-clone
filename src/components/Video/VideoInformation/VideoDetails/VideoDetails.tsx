@@ -19,8 +19,8 @@ export const VideoDetails: FC<VideoDetailsProps> = ({ title, viewCount, likeCoun
             <div className="video__info__view">
                 <p className="video__info__view__view-count">{numberWithSpaces(viewCount)} views</p>
                 <div className="video__info__view__button-block" onClick={handleClick}>
-                    <img className="video__info__view__button-block" src={Like} alt="like"/>
-                
+                    <img src={Like} alt="like" />
+
                     <p>{likeCount}</p>
                 </div>
                 <div className="video__info__view__button-block" onClick={handleClick}>
