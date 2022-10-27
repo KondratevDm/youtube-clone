@@ -3,23 +3,30 @@
     background-color: #212121;
     height: 56px;
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     align-items: center;
     position: fixed;
     z-index: 10;
     
+    &__logo-block {
+        display: flex;
+        align-items: center;
 
-    &__hamburger {
-        margin-left: 16px;
-        margin-right: 30px;
-        &:hover {
-            cursor: pointer;
-        }
-    };
-
-    &__logo {
-        &:hover {
-            cursor: pointer;
+        &__hamburger {
+            margin-left: 16px;
+            margin-right: 30px;
+            &:hover {
+                cursor: pointer;
+            }
+        };
+    
+        &__logo {
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
+
+    
 }

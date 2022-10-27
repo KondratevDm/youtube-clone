@@ -1,6 +1,5 @@
 import React, { useState, FC } from 'react';
 import Collapse from '@mui/material/Collapse';
-import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 
@@ -25,8 +24,8 @@ export const Sidebar: FC<SidebarProps> = ({ isSidebarOpen, selectedCategory, set
   }
 
   return (
-    <Box>
-      <Drawer variant="permanent" open={isSidebarOpen}>
+    <div className={`sidebar ${isSidebarOpen ? 'sidebar__open' : ''}`}>
+      <Drawer variant="permanent" open={isSidebarOpen} >
         <List sx={{ paddingTop: '0' }}>
           <SidebarTabs
             isSidebarOpen={isSidebarOpen}
@@ -49,6 +48,6 @@ export const Sidebar: FC<SidebarProps> = ({ isSidebarOpen, selectedCategory, set
         </List>
         <Divider />
       </Drawer>
-    </Box>
+    </div>
   );
 }

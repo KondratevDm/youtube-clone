@@ -34,6 +34,7 @@
                 flex-direction: row;
                 align-items: center;
                 margin-right: 20px;
+                
                 p {
                     margin-left:5px;
                     font-size: 14px;
@@ -49,6 +50,12 @@
                 justify-content: space-between;
                 align-items: center;
 
+                @media screen and (max-width: 600px) {
+                    align-items: flex-start;
+                    flex-direction: column;
+                }
+
+                
                 &__channel-info {
                     display: flex;
                     align-items: center;
@@ -76,6 +83,12 @@
                 margin-left: 70px;
                 width:60%;
 
+                @media screen and (max-width: 600px) {
+                    margin-left: 0px;
+                    width:100%;
+                    margin-top: 20px;
+                }
+
                 pre {
                     font-family: 'Roboto';
                     font-style: normal;
@@ -95,6 +108,10 @@
                 font-weight: bold;
                 border: 0;
                 cursor: pointer;
+
+                @media screen and (max-width: 600px) {
+                    margin-top: 20px;
+                }
             }
         }
 
@@ -156,6 +173,11 @@
         flex-direction: column;
         min-height: calc(100vh - 56px);
         
+
+        @media screen and (max-width: 600px) {
+            padding: 15px;
+        }
+
 
         &__player {
             max-width: 100%;

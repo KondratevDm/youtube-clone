@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import './SearchBar.scss';
 
 export const SearchBar = () => {
   const [text, setText] = useState<string>('')
-  
+  const [isHiddenInputShow, setIsHiddenInputShow] = useState<boolean>(false)
+
+
   const navigate = useNavigate()
 
   const handleChangeText = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -13,10 +15,20 @@ export const SearchBar = () => {
   }
 
   const enterPressEvent = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
+
+    if (e.key === 'Enter' && text.length) {
       navigate(`search/${text}`)
     }
   }
+
+  const hiddenInputShow = () => {
+    setIsHiddenInputShow(!isHiddenInputShow)
+
+    if (text.length) {
+      navigate(`search/${text}`)
+    }
+  }
+
 
   return (
     <div className="searchBar">
@@ -25,10 +37,16 @@ export const SearchBar = () => {
         onChange={handleChangeText}
         onKeyPress={enterPressEvent}
         placeholder="Search"
+        className="searchBar__default-input"
       />
-      <Link to={`search/${text}`}>
-        <button />
-      </Link>
+      <input
+        value={text}
+        onChange={handleChangeText}
+        onKeyPress={enterPressEvent}
+        placeholder="Search"
+        className={`searchBar__hidden-input ${isHiddenInputShow ? 'searchBar__hidden-input__show' : ''}`}
+      />
+      <button onClick={hiddenInputShow} />
     </div>
   );
 }
