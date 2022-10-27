@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import { Error } from '@components';
-import { useFetchVideoComments } from '@/hooks/useFetchVideoComments'
+import { useFetchVideoComments } from '@/hooks/fetch'
 import { numberWithSpaces } from '@utils'
 import { Commentary } from './Commentary/Commentary';
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { useFetchSuggestedVideos } from '@/hooks/useFetchSuggestedVideos'
+import { useFetchSuggestedVideos } from '@/hooks/fetch'
 import { VideoItemType } from '@/types'
 import { Cards, Error, Loader } from '@components'
 
